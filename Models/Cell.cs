@@ -6,7 +6,7 @@ namespace ConwayLifeGame.Models
 {
     public class Cell
     {
-        public bool alive;
+        private bool alive;
         private int x;
         private int y;
         private List<Cell> neighbours;
@@ -15,6 +15,12 @@ namespace ConwayLifeGame.Models
         {
             x = _x;
             y = _y;
-        }                             
+            alive = false;
+        }                   
+        
+        public bool IsAlive()
+        {
+            return alive;
+        }
     }
 }

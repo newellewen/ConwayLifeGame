@@ -19,7 +19,7 @@ namespace ConwayLifeGame.Controllers
         {
             try
             {
-                if (cells.Where(cell => cell.alive).Count() == 0)
+                if (cells.Where(cell => cell.IsAlive()).Count() == 0)
                 {
                     throw new Exception("You must start with at least one living cell.");
                 }
@@ -32,6 +32,10 @@ namespace ConwayLifeGame.Controllers
             }
         }
 
+        public void Iterate()
+        {
+
+        }
 
     }
 }
