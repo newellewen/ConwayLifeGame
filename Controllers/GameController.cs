@@ -6,36 +6,11 @@ using ConwayLifeGame.Models;
 
 namespace ConwayLifeGame.Controllers
 {
-    public class GameController
+    public static class GameController
     {
-        private List<Cell> cells;
-
-        public void Init(List<Cell> seed)
-        {
-            cells = seed;
-        }
-
-        public void Start()
-        {
-            try
-            {
-                if (cells.Where(cell => cell.IsAlive()).Count() == 0)
-                {
-                    throw new Exception("You must start with at least one living cell.");
-                }
-
-
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-            }
-        }
-
-        public void Iterate()
+        public static void Iterate()
         {
 
         }
-
     }
 }
