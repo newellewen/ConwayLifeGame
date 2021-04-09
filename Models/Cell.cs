@@ -32,8 +32,6 @@ namespace ConwayLifeGame.Models
             neighbours = _neighbours;
         }
 
-
-
         public bool Neighbours(Cell other)
         {
             int x_delta = Math.Abs(x - other.x);

@@ -10,13 +10,26 @@ namespace ConwayLifeGame.Controllers
     public class GameController
     {
         private List<Cell> cells;
-        private Task CheckCellsTask;
+        private List<Cell> cellsToKill;
+        private List<Cell> cellsToResurrect;
+        private Task CheckRules;
+        private Task ApplyRules;
+
 
         public GameController(List<Cell> seed)
         {
             cells = seed;
             FillList();
             SetNeighbours();
+        }
+
+        public void Go()
+        {
+            CheckRulesTask();
+            //CheckRules.Wait();
+
+            ApplyRulesTask();
+            //ApplyRules.Wait();
         }
 
         private void FillList()
@@ -59,38 +72,90 @@ namespace ConwayLifeGame.Controllers
             }
         }
 
-        private Task CheckCells()
-        {
-            return Task.Factory.StartNew(delegate ()
-            {
-                foreach (Cell cell in cells)
-                {
-                    int liveNeighbours = cell.neighbours.Where(cell => cell.IsAlive()).Count();
-                    if (cell.IsAlive())
-                    {
-                        if (liveNeighbours < 2 || liveNeighbours > 3)
-                        {
-                            cell.Kill();
-                        }
-                    } else
-                    {
-                        if (liveNeighbours == 3)
-                        {
-                            cell.Resurrect();
-                        }
-                    }
 
+        private void CheckRulesTask()
+        {
+            cellsToKill = new List<Cell>();
+            cellsToResurrect = new List<Cell>();
+
+            foreach (Cell cell in cells)
+            {
+                int liveNeighbours = cell.neighbours.Where(cell => cell.IsAlive()).Count();
+                if (cell.IsAlive())
+                {
+                    if (liveNeighbours < 2 || liveNeighbours > 3)
+                    {
+                        cellsToKill.Add(cell);
+                    }
                 }
-            });
+                else
+                {
+                    if (liveNeighbours == 3)
+                    {
+                        cellsToResurrect.Add(cell);
+                    }
+                }
+            }
         }
 
-        private Task ChangeNeighbors()
+        private void ApplyRulesTask()
         {
-            return Task.Factory.StartNew(delegate ()
+            foreach (Cell cell in cellsToKill)
             {
+                cells.Find(_cell => cell.Equals(_cell)).Kill();
+            }
 
-            });
+            foreach (Cell cell in cellsToResurrect)
+            {
+                cells.Find(_cell => cell.Equals(_cell)).Resurrect();
+            }
         }
 
     }
+
+
+    //    private Task CheckRulesTask()
+    //    {
+    //        return Task.Factory.StartNew(delegate ()
+    //        {
+    //            cellsToKill = new List<Cell>();
+    //            cellsToResurrect = new List<Cell>();
+
+    //            foreach (Cell cell in cells)
+    //            {
+    //                int liveNeighbours = cell.neighbours.Where(cell => cell.IsAlive()).Count();
+    //                if (cell.IsAlive())
+    //                {
+    //                    if (liveNeighbours < 2 || liveNeighbours > 3)
+    //                    {
+    //                        cellsToKill.Add(cell);
+    //                    }
+    //                } else
+    //                {
+    //                    if (liveNeighbours == 3)
+    //                    {
+    //                        cellsToResurrect.Add(cell);
+    //                    }
+    //                }
+    //            }
+    //        });
+    //    }
+
+    //    private Task ApplyRulesTask()
+    //    {
+    //        return Task.Factory.StartNew(delegate ()
+    //        {
+    //            foreach (Cell cell in cellsToKill)
+    //            {
+    //                cells.Find(_cell => cell.Equals(cell)).Kill();
+    //            }
+
+    //            foreach (Cell cell in cellsToResurrect)
+    //            {
+    //                cells.Find(_cell => cell.Equals(cell)).Resurrect();
+    //            }
+    //        });
+    //    }
+
+    //}
 }
