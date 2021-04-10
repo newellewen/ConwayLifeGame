@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,7 +11,15 @@ namespace ConwayLifeGame.Models
         private bool alive;
         public int x;
         public int y;
-        public List<Cell> neighbours;
+        public int livingNeighbours
+        {
+            get
+            {
+                return neighbours.Where(_cell => _cell.IsAlive()).Count();
+            }
+        }
+
+        private List<Cell> neighbours;
         private string stringFormat = "({0}, {1}) - {2}";
 
         public Cell(int _x, int _y)

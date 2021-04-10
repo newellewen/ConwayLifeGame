@@ -13,10 +13,10 @@ namespace ConwayLifeGame
         {
             List<Cell> cells = new List<Cell>();
 
-            cells.Add(new Cell(3, 2, true));
+            cells.Add(new Cell(2, 2, true));
+            cells.Add(new Cell(2, 3, true));
             cells.Add(new Cell(3, 3, true));
-            cells.Add(new Cell(3, 4, true));
-            cells.Add(new Cell(3, 5, true));
+            cells.Add(new Cell(4, 3, true));
 
             GameController game = new GameController(cells);
 
@@ -32,7 +32,9 @@ namespace ConwayLifeGame
             game.Go();
             Console.WriteLine("---------------------------------------------------------------------------------------------------------------------");
             game.PrintState();
-
+            game.Go();
+            Console.WriteLine("---------------------------------------------------------------------------------------------------------------------");
+            game.PrintState();
         }
     }
 }

@@ -84,7 +84,7 @@ namespace ConwayLifeGame.Controllers
 
             foreach (Cell cell in cells)
             {
-                int liveNeighbours = cell.neighbours.Where(_cell => _cell.IsAlive()).Count();
+                int liveNeighbours = cell.livingNeighbours;
                 if (cell.IsAlive())
                 {
                     if (liveNeighbours < 2 || liveNeighbours > 3)
