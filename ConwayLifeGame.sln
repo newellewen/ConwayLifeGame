@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConwayLifeGame", "ConwayLifeGame.csproj", "{D1250C54-5369-44F3-A3EF-727530D3DEF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwayLifeGameTests", "..\ConwayLifeGameTests\ConwayLifeGameTests.csproj", "{901493C6-89F8-4507-A124-80B56AFBCD03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwayLifeGameTests", "ConwayLifeGameTests\ConwayLifeGameTests.csproj", "{945AC88B-EA6B-4425-B42F-8B44D558046E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{D1250C54-5369-44F3-A3EF-727530D3DEF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1250C54-5369-44F3-A3EF-727530D3DEF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1250C54-5369-44F3-A3EF-727530D3DEF0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{901493C6-89F8-4507-A124-80B56AFBCD03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{901493C6-89F8-4507-A124-80B56AFBCD03}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{901493C6-89F8-4507-A124-80B56AFBCD03}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{901493C6-89F8-4507-A124-80B56AFBCD03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{945AC88B-EA6B-4425-B42F-8B44D558046E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{945AC88B-EA6B-4425-B42F-8B44D558046E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{945AC88B-EA6B-4425-B42F-8B44D558046E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{945AC88B-EA6B-4425-B42F-8B44D558046E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
