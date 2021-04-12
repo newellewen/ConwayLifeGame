@@ -47,7 +47,7 @@ namespace ConwayLifeGameTests
 
         [TestMethod]
         public void TestGo()
-        {
+        {   
             GameController game = new GameController(seed1);
             game.Go();
             CollectionAssert.AreEquivalent(game.GetLivingCells(), result1);
