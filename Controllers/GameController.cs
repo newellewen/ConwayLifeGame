@@ -64,9 +64,14 @@ namespace ConwayLifeGame.Controllers
             }
         }
 
+        public List<Cell> GetLivingCells()
+        {
+            return cells.Where(_cell => _cell.IsAlive()).ToList();
+        }
+
         public void PrintState()
         {
-            foreach(Cell cell in cells.Where(_cell => _cell.IsAlive()))
+            foreach(Cell cell in GetLivingCells())
             {
                 Console.WriteLine(cell);
                 //foreach(Cell neighbour in cell.neighbours)
